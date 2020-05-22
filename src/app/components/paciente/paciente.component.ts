@@ -1,4 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { PacienteService } from 'src/service/paciente.service';
+import { Paciente } from '../../../model/paciente';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { DialogoConfirmacionComponent } from "../dialogo-confirmacion/dialogo-confirmacion.component";
+import { DialogoAgregarPacienteComponent } from "../dialogo-agregar-paciente/dialogo-agregar-paciente.component";
+import { AgregarPacienteComponent } from "./agregar-paciente/agregar-paciente.component"
+import { MaterialModule } from '../../material/material.module';
+
+
 
 @Component({
   selector: 'app-paciente',
@@ -6,10 +17,53 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./paciente.component.css']
 })
 export class PacienteComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'nombre', 'eps', 'direccion', 'nombreAcompanante', 'telefonoAcompanante', 'antecedentes', 'editar', 'eliminar'];
+  paciente: Paciente[];
+  
+  constructor(private pacientesService: PacienteService, private dialogo: MatDialog, private snackBar: MatSnackBar, private router: Router) { }
 
-  constructor() { }
+  eliminarPaciente(paciente: Paciente) {
+    this.dialogo
+      .open(DialogoConfirmacionComponent, {
+        data: `¿Realmente quieres eliminar a ${paciente.nombre}?`
+      })
+      .afterClosed()
+      .subscribe((confirmado: Boolean) => {
+        if (!confirmado) return;
+        this.pacientesService
+          .deletePaciente(paciente)
+          .subscribe(() => {
+            this.obtenerPaciente();
+            this.snackBar.open(`El pacientes ${paciente.nombre} a sido eliminado`,undefined, {
+              duration: 1500,
+            });
+          });
+      })
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.obtenerPaciente();
+  }
+  
+  obtenerPaciente() {
+    return this.pacientesService
+      .getPacientes()
+      .subscribe((paciente: Paciente[]) => this.paciente = paciente);
+  }
+
+
+  eliminar(paciente:Paciente):void {
+
+    this.pacientesService.deletePaciente(paciente)
+    .subscribe(data => {      
+      this.ngOnInit();
+    });
+  }
+
+  openAgregar() {
+    this.router.navigate(['/agregar']);;
   }
 
 }
+
+

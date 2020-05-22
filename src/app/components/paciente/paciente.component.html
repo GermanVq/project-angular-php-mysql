@@ -1,1 +1,104 @@
-<p>paciente works!</p>
+<style>
+</style>
+<div class="container">
+    <mat-toolbar class="toolbar">
+        <a href="home">
+            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" height="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+            </span>
+        </a>
+        <span class="fill-remaining-space"></span>
+        <h1 id="title-toolbar">Modulo del Paciente</h1>
+        <span class="fill-remaining-space"></span>
+        <a>
+            <svg id="Logo" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 0 64 64" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M42.6666 0H21.3333V21.3333H0V42.6667H21.3333V64H42.6666V42.6667H64V21.3333H42.6666V0Z" fill="white"/>
+                <path d="M40.2962 31C40.2962 35.5819 36.5818 39.2963 31.9999 39.2963C27.418 39.2963 23.7036 35.5819 23.7036 31C33.3625 36.2558 37.4701 32.9467 31.9999 22.7037C36.5818 22.7037 40.2962 26.4181 40.2962 31Z" fill="#07C698"/>
+            </svg>
+        </a>
+    </mat-toolbar>
+    
+</div>
+
+
+<div class="content" role="main">
+<!-- Resources -->
+    <mat-card class="card-table">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Tabla de Paciente</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+            <div class="btn-agregar">
+                <button [routerLink]="['/paciente/agregar']" class="btn-agg" mat-raised-button>Apregar Paciente</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+        <table mat-table [dataSource]="paciente" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="eps">
+                <th mat-header-cell *matHeaderCellDef> eps </th>
+                <td mat-cell *matCellDef="let element"> {{element.eps}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="direccion">
+                <th mat-header-cell *matHeaderCellDef> direccion </th>
+                <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nombreAcompanante">
+                <th mat-header-cell *matHeaderCellDef> nombre Ac. </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombreAcompanante}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="telefonoAcompanante">
+                <th mat-header-cell *matHeaderCellDef> telefono Ac. </th>
+                <td mat-cell *matCellDef="let element"> {{element.telefonoAcompanante}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="antecedentes">
+                <th mat-header-cell *matHeaderCellDef> antecedentes </th>
+                <td mat-cell *matCellDef="let element"> {{element.antecedentes}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="editar">
+                <th mat-header-cell *matHeaderCellDef>Editar</th>
+                <td mat-cell *matCellDef="let paciente">
+                    <a mat-icon-button [routerLink]="['/mascotas/editar', paciente.id]">
+                        <mat-icon class="edit-icon">edit</mat-icon>
+                    </a>
+                </td>
+            </ng-container>
+                    
+            <ng-container matColumnDef="eliminar">
+                <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+                <td mat-cell *matCellDef="let paciente">
+                    <button (click)="eliminarPaciente(paciente)" mat-icon-button>
+                        <mat-icon color="warn">delete</mat-icon>
+                    </button>
+                </td>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+	                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </ng-container>
+                </table>
+<!-- Footer -->
+<footer>
+    
+</footer>
+
+    <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+    <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
+    </svg>
+
+</div>

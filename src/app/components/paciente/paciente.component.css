@@ -1,0 +1,119 @@
+
+div.container {
+    margin: 0px 40px;
+    
+}
+.toolbar{
+    background-color: #07C698;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    padding: 1%;
+
+}
+
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+#title-toolbar { 
+    color: white; 
+    
+}
+table {
+    width: 100%;
+}
+
+.example-header-image {
+    background-image: url('https://image.flaticon.com/icons/svg/2750/2750657.svg');
+    background-size: cover;
+}
+
+.content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+}
+.edit-icon{
+    color: #07C698;
+}
+
+svg#rocket {
+    width: 80px;
+    position: absolute;
+    left: -10px;
+    top: -24px;
+}
+
+svg#rocket-smoke {
+    height: calc(100vh - 95px);
+    position: absolute;
+    top: 10px;
+    right: 180px;
+    z-index: -10;
+}
+.btn-agg{
+    margin-left: 60px;
+    align-items: center;
+    border-radius: 34.5px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #07C698;
+}
+
+a,
+a:visited,
+a:hover {
+    color: #1976d2;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #125699;
+}
+
+
+footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+}
+
+footer a {
+    display: flex;
+    align-items: center;
+}
+
+svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+}
+
+
+  /* Responsive Styles */
+@media screen and (max-width: 767px) {
+
+    .card-container > *:not(.circle-link) ,
+    .terminal {
+    width: 100%;
+    }
+
+    svg#rocket-smoke {
+    right: 120px;
+    transform: rotate(-5deg);
+    }
+}
+
+@media screen and (max-width: 575px) {
+    svg#rocket-smoke {
+    display: none;
+    visibility: hidden;
+    }
+}

@@ -48,7 +48,7 @@ button:active {
     transform: translateY(4px);
 }
 button:hover {
-    background-color:#07C698;
+    background-color: #07C698;
 }
 
 .toolbar{
