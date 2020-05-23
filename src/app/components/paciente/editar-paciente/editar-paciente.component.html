@@ -1,4 +1,3 @@
-
 <style>
 
 </style>
@@ -9,7 +8,7 @@
             </span>
         </a>
         <span class="fill-remaining-space"></span>
-        <h1 id="title-toolbar">Agregar Paciente</h1>
+        <h1 id="title-toolbar">Editar</h1>
         <span class="fill-remaining-space"></span>
         <a>
             <svg id="Logo" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 0 64 64" fill="none">
@@ -27,12 +26,12 @@
     <mat-card class="card-table">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Agregar Paciente</mat-card-title>
-            <mat-card-subtitle>Ingrese todos los campos para agregar un paciente</mat-card-subtitle>
+            <mat-card-title>Editar Paciente</mat-card-title>
+            <mat-card-subtitle>Ingrese los campos que desea editar</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
             <div class="form-container">
-                <form [formGroup]="addForm" (ngSubmit)="onSubmit()" method="POST">
+                <form [formGroup]="editForm"  (ngSubmit)="onSubmit()" #formMascota="ngForm">
 
                     <mat-form-field style="margin: 5px" appearance="fill">
                         <mat-label>Nombre</mat-label>
@@ -42,10 +41,10 @@
                     <mat-form-field style="margin: 5px" appearance="fill">
                         <mat-label>EPS</mat-label>
                         <mat-select required name="eps" formControlName="eps"  class="form-control" id="eps">
-                        <mat-option value="SURA">SURA</mat-option>
-                        <mat-option value="COOMEVA">COOMEVA</mat-option>
-                        <mat-option value="SUSALUD">SUSALUD</mat-option>
-                        <mat-option value="VIVA1A">VIVA1A</mat-option>
+                            <mat-option value="SURA">SURA</mat-option>
+                            <mat-option value="COOMEVA">COOMEVA</mat-option>
+                            <mat-option value="SUSALUD">SUSALUD</mat-option>
+                            <mat-option value="VIVA1A">VIVA1A</mat-option>
                         </mat-select >
                     </mat-form-field>
 
@@ -75,7 +74,7 @@
 
                     <br>
 
-                    <button  class="btn-agregar" type="Submit" mat-raised-button>Guardar</button>
+                    <button  class="btn-editar" type="Submit" mat-raised-button>Guardar</button>
 
                 </form>
             </div>      
@@ -92,5 +91,6 @@
     </svg>
 
 </div>
+
 
 

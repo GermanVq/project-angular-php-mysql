@@ -21,10 +21,7 @@ export class PacienteService {
     return this.http.get(`${this.Url}/sv_paciente/getAll.php`);
   }
   getPaciente(id: string | number){
-    return this.http.get(`${this.Url}/sv_paciente/get.php?id=${id}`);
-  }
-  addPaciente(paciente: Paciente){
-    return this.http.post(`${this.Url}/sv_paciente/post.php`, paciente, {headers, responseType: 'text' as 'json' });
+    return this.http.get(`${this.Url}/sv_paciente/get.php?id=${id}`,{headers, responseType: 'text' as 'json' });
   }
   deletePaciente(paciente: Paciente){
     return this.http.delete(`${this.Url}/sv_paciente/delete.php?id=${paciente.id}`,{headers, responseType: 'text' as 'json' });
@@ -32,12 +29,12 @@ export class PacienteService {
   updatePaciente(paciente: Paciente){
     return this.http.put(`${this.Url}/sv_paciente/update.php`, paciente);
   }
-  crearPaciente(paciente: Paciente): Observable<PacienteService>  {    
-    return this.http.post<PacienteService>('http://localhost/server/sv_paciente/post.php', JSON.stringify(paciente));
-  }
   add2Paciente(paciente: Paciente): Observable<PacienteService> {
     return this.http.post<PacienteService>(`${this.Url}/sv_paciente/post.php`, JSON.stringify(paciente),
     {responseType: 'text' as 'json' });
+  }
+  editarPaciente(paciente:Paciente):Observable<PacienteService>{
+    return this.http.put<PacienteService>(`${this.Url}/sv_paciente/post.php`,JSON.stringify(paciente));
   }
   
 }

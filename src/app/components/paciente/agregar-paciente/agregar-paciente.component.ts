@@ -15,6 +15,8 @@ export class AgregarPacienteComponent implements OnInit {
 
   addForm:FormGroup;
 
+  
+
   constructor(private formBuilder: FormBuilder, private pacienteService: PacienteService,
     private snackBar: MatSnackBar,
     private router: Router,) { }

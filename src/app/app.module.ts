@@ -28,6 +28,7 @@ import { MaterialModule } from './material/material.module'
 import { DialogoConfirmacionComponent } from './components/dialogo-confirmacion/dialogo-confirmacion.component';
 import { DialogoAgregarPacienteComponent } from './components/dialogo-agregar-paciente/dialogo-agregar-paciente.component';
 import { AgregarPacienteComponent } from './components/paciente/agregar-paciente/agregar-paciente.component';
+import { EditarPacienteComponent } from './components/paciente/editar-paciente/editar-paciente.component';
 
 const rutas: Routes = [
   {
@@ -55,6 +56,10 @@ const rutas: Routes = [
     component: AgregarPacienteComponent
   },
   {
+    path: 'paciente/editar',
+    component: EditarPacienteComponent
+  },
+  {
     path: '',
     component: HomeComponent,
   },
@@ -71,6 +76,7 @@ const rutas: Routes = [
     DialogoConfirmacionComponent,
     DialogoAgregarPacienteComponent,
     AgregarPacienteComponent,
+    EditarPacienteComponent,
     
     
   ],

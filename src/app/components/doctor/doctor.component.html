@@ -31,6 +31,71 @@
                 
             </mat-card-content>
         </mat-card>
+
+        <table mat-table [dataSource]="doctor" class="mat-elevation-z9">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="idHospital">
+                <th mat-header-cell *matHeaderCellDef> ID Hospital </th>
+                <td mat-cell *matCellDef="let element"> {{element.idHospital}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="direccion">
+                <th mat-header-cell *matHeaderCellDef> direccion </th>
+                <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="telefono">
+                <th mat-header-cell *matHeaderCellDef> Telefono </th>
+                <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="tipoSangre">
+                <th mat-header-cell *matHeaderCellDef> Sangre </th>
+                <td mat-cell *matCellDef="let element"> {{element.tipoSangre}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="experiencia">
+                <th mat-header-cell *matHeaderCellDef> Experiencia </th>
+                <td mat-cell *matCellDef="let element"> {{element.experiencia}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fechaNacimiento">
+                <th mat-header-cell *matHeaderCellDef> fecha de Nacimiento </th>
+                <td mat-cell *matCellDef="let element"> {{element.fechaNacimiento}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="editar">
+                <th mat-header-cell *matHeaderCellDef>Editar</th>
+                <td mat-cell *matCellDef="let doctor">
+                    <a mat-icon-button>
+                        <mat-icon class="edit-icon">edit</mat-icon>
+                    </a>
+                </td>
+            </ng-container>
+                    
+            <ng-container matColumnDef="eliminar">
+                <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+                <td mat-cell *matCellDef="let doctor">
+                    <button (click)="eliminarDoctor(doctor)" mat-icon-button>
+                        <mat-icon color="warn">delete</mat-icon>
+                    </button>
+                </td>  
+            </ng-container>
+
+             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+	        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
 <!-- Footer -->
 <footer>
     

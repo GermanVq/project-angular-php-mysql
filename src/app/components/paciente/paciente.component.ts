@@ -5,9 +5,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { DialogoConfirmacionComponent } from "../dialogo-confirmacion/dialogo-confirmacion.component";
-import { DialogoAgregarPacienteComponent } from "../dialogo-agregar-paciente/dialogo-agregar-paciente.component";
-import { AgregarPacienteComponent } from "./agregar-paciente/agregar-paciente.component"
-import { MaterialModule } from '../../material/material.module';
+
 
 
 
@@ -22,7 +20,7 @@ export class PacienteComponent implements OnInit {
   
   constructor(private pacientesService: PacienteService, private dialogo: MatDialog, private snackBar: MatSnackBar, private router: Router) { }
 
-  eliminarPaciente(paciente: Paciente) {
+  eliminarPaciente(paciente:Paciente) {
     this.dialogo
       .open(DialogoConfirmacionComponent, {
         data: `¿Realmente quieres eliminar a ${paciente.nombre}?`
@@ -50,18 +48,21 @@ export class PacienteComponent implements OnInit {
       .getPacientes()
       .subscribe((paciente: Paciente[]) => this.paciente = paciente);
   }
-
-
+  
   eliminar(paciente:Paciente):void {
-
     this.pacientesService.deletePaciente(paciente)
-    .subscribe(data => {      
+    .subscribe(datas => {      
       this.ngOnInit();
     });
   }
 
   openAgregar() {
     this.router.navigate(['/agregar']);;
+  }
+
+  editar(paciente:Paciente) {
+    window.localStorage.setItem("editarPaciente", paciente.id.toString());
+    this.router.navigate(['paciente/editar']);
   }
 
 }
