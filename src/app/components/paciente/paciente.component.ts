@@ -61,7 +61,7 @@ export class PacienteComponent implements OnInit {
   }
 
   editar(paciente:Paciente) {
-    window.localStorage.setItem("editarPaciente", paciente.id.toString());
+    window.localStorage.setItem("editarPaciente", paciente.id);
     this.router.navigate(['paciente/editar']);
   }
 

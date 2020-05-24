@@ -1,16 +1,16 @@
 <?php
 header("Access-Control-Allow-Origin: http://localhost:4200");
 header("Access-Control-Allow-Methods: DELETE");
+
 $metodo = $_SERVER["REQUEST_METHOD"];
-if ($metodo != "DELETE" && $metodo != "OPTIONS") {
-    exit("Solo se permite método DELETE");
-}
 
 if (empty($_GET["id"])) {
-    exit("No hay id de mascota para eliminar");
+    exit("No hay id de paciente para eliminar");
 }
-$idMascota = $_GET["id"];
-$bd = include_once "../connectdb.php";
-$sentencia = $bd->prepare("DELETE FROM paciente WHERE id = ?");
-$resultado = $sentencia->execute([$id]);
+
+$id_paciente = $_GET["id"];
+
+$db = include_once "../connectdb.php";
+$sentencia = $db->prepare("DELETE FROM paciente WHERE id = ?");
+$resultado = $sentencia->execute([$id_paciente]);
 echo json_encode($resultado);
