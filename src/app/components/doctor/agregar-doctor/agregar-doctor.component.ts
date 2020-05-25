@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MaterialModule } from '../../../material/material.module';
 import { DoctorService} from "../../../../service/doctor.service"
 import { Doctor} from '../../../../model/doctor';
 import { MatSnackBar } from '@angular/material/snack-bar';

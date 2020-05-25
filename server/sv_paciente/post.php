@@ -7,7 +7,7 @@ if (!$jsonPaciente) {
     exit("No hay datos");
 }
 $bd = include_once "../connectdb.php";
-$sentencia = $bd->prepare("INSERT into paciente( nombre, eps, direccion, nombreAcompanante, telefonoAcompanante, antecedentes) values (?,?,?,?,?,?)");
+$sentencia = $bd->prepare("INSERT into paciente(nombre, eps, direccion, nombreAcompanante, telefonoAcompanante, antecedentes) values (?,?,?,?,?,?)");
 $resultado = $sentencia->execute([$jsonPaciente->nombre,
                                     $jsonPaciente->eps, 
                                     $jsonPaciente->direccion, 

@@ -29,44 +29,58 @@
             <mat-card-title>Triage</mat-card-title>
             <mat-card-subtitle>Ingrese todos los campos diligenciar el triage</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content>
-            <div class="form-container">
+    <mat-card-content>
+        <div class="form-container">
             
-                <form>
+            <form [formGroup]="addForm" (ngSubmit)="onSubmit()" method="POST">
+                <mat-form-field style="margin: 5px" appearance="legacy">
+                    <mat-label> Doctor </mat-label>
+                    <input matInput required name="idDoctor" formControlName="idDoctor" class="form-control" id="idDoctor">
+                </mat-form-field>
 
-                    <mat-form-field style="margin: 5px" appearance="legacy">
-                        <mat-label> Doctor </mat-label>
-                        <input matInput required name="idDoctor" formControlName="idDoctor" class="form-control" id="idDoctor">
-                    </mat-form-field>
+                <mat-form-field style="margin: 5px" appearance="legacy">
+                    <mat-label> Paciente </mat-label>
+                    <input matInput required name="idPaciente" formControlName="idPaciente" class="form-control" id="idPaciente">
+                </mat-form-field>
 
-                    <mat-form-field style="margin: 5px" appearance="legacy">
-                        <mat-label> Paciente </mat-label>
-                        <input matInput required name="idPaciente" formControlName="idPaciente" class="form-control" id="idPaciente">
-                    </mat-form-field>
+                <br>
 
-                    <mat-form-field style="margin: 5px" appearance="legacy">
-                        <mat-label> Motivo </mat-label>
-                        <textarea matInput required name="motivo" formControlName="motivo" class="form-control" id="motivo"></textarea>
-                    </mat-form-field>
-                    
-            
-                    <mat-form-field  style="margin: 5px" appearance="flegacy">
-                        <mat-label> Diagnostico </mat-label>
-                        <textarea matInput required name="diagnostico" formControlName="diagnostico" class="form-control" id="diagnostico"></textarea>
-                    </mat-form-field>
+                <mat-form-field style="margin: 5px" appearance="legacy">
+                    <mat-label> Motivo </mat-label>
+                    <textarea matInput required name="motivo" formControlName="motivo" class="form-control" id="motivo"></textarea>
+                </mat-form-field>
+                
+                <mat-form-field  style="margin: 5px" appearance="flegacy">
+                    <mat-label> Diagnostico </mat-label>
+                    <textarea matInput required name="diagnostico" formControlName="diagnostico" class="form-control" id="diagnostico"></textarea>
+                </mat-form-field>
 
-                    <mat-form-field style="margin: 5px" appearance="legacy">
-                        <mat-label> Medicina </mat-label>
-                        <input matInput required name="requiereMedicina" formControlName="requiereMedicina" class="form-control" id="requiereMedicina">
-                    </mat-form-field>
+                <br>
 
-                    <mat-form-field style="margin: 5px" appearance="legacy">
-                        <mat-label> Covid </mat-label>
-                        <input matInput required name="covid" formControlName="covid" class="form-control" id="covid">
-                    </mat-form-field>
-                    
+                <mat-form-field style="margin: 5px" appearance="legacy">
+                    <mat-label> Medicina </mat-label>
+                    <input matInput required name="requiereMedicina" formControlName="requiereMedicina" class="form-control" id="requiereMedicina">
+                </mat-form-field>
 
-                    <button  class="btn-agregar" type="submit" mat-raised-button>Guardar</button>
+                <mat-form-field style="margin: 5px" appearance="legacy">
+                    <mat-label> Covid </mat-label>
+                    <input matInput required name="covid" formControlName="covid" class="form-control" id="covid">
+                </mat-form-field>
+                
+                <br>
+
+                <h2 class="example-h2">Sintomas del Paciente</h2>
+                <section class="sintomas">
+                    <mat-checkbox formControlName="tos" id="tos" name="tos" style="margin: 5px" class="form-control">Tos</mat-checkbox>
+                    <mat-checkbox formControlName="dificultadRespirar" id="dificultadRespirar" name="dificultadRespirar" style="margin: 5px" class="form-control">Dificultad Respiratoria</mat-checkbox>
+                    <mat-checkbox formControlName="fiebre" id="fiebre" name="fiebre" style="margin: 5px" class="form-control">Fiebre</mat-checkbox>
+                    <br>
+                    <mat-checkbox formControlName="escalofrio" id="escalofrio" name="escalofrio" style="margin: 5px" class="form-control">Escalofrios</mat-checkbox>
+                    <mat-checkbox formControlName="temblorEscalofrio" id="temblorEscalofrio" name="temblorEscalofrio" style="margin: 5px" class="form-control">Temblor</mat-checkbox>
+                    <mat-checkbox formControlName="dolorMuscular" id="dolorMuscular" name="dolorMuscular" style="margin: 5px" class="form-control">Dolor Muscular</mat-checkbox>
+                </section>
+                <br>
+                <button  class="btn-agregar" type="submit" mat-raised-button>Guardar</button>
 
                 </form>
             </div>      

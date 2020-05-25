@@ -20,6 +20,8 @@ div.container {
     background-color: #07C698;
     width: 150px;
 }
+.form-control .mat-ripple-element,.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #07C698 !important;}
 .datepiker{
     color: #07C698;
 }
