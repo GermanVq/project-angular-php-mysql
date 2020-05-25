@@ -34,64 +34,66 @@
         </mat-card-content>
     </mat-card>
 
-        <table mat-table [dataSource]="paciente" class="mat-elevation-z8">
+    <br>
 
-            <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef> ID </th>
-                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-            </ng-container>
+    <table mat-table [dataSource]="paciente" class="mat-elevation-z8">
 
-            <ng-container matColumnDef="nombre">
-                <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-            </ng-container>
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
 
-            <ng-container matColumnDef="eps">
-                <th mat-header-cell *matHeaderCellDef> eps </th>
-                <td mat-cell *matCellDef="let element"> {{element.eps}} </td>
-            </ng-container>
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>
 
-            <ng-container matColumnDef="direccion">
-                <th mat-header-cell *matHeaderCellDef> direccion </th>
-                <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
-            </ng-container>
+        <ng-container matColumnDef="eps">
+            <th mat-header-cell *matHeaderCellDef> eps </th>
+            <td mat-cell *matCellDef="let element"> {{element.eps}} </td>
+        </ng-container>
 
-            <ng-container matColumnDef="nombreAcompanante">
-                <th mat-header-cell *matHeaderCellDef> nombre Ac. </th>
-                <td mat-cell *matCellDef="let element"> {{element.nombreAcompanante}} </td>
-            </ng-container>
+        <ng-container matColumnDef="direccion">
+            <th mat-header-cell *matHeaderCellDef> direccion </th>
+            <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+        </ng-container>
 
-            <ng-container matColumnDef="telefonoAcompanante">
-                <th mat-header-cell *matHeaderCellDef> telefono Ac. </th>
-                <td mat-cell *matCellDef="let element"> {{element.telefonoAcompanante}} </td>
-            </ng-container>
+        <ng-container matColumnDef="nombreAcompanante">
+            <th mat-header-cell *matHeaderCellDef> nombre Ac. </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombreAcompanante}} </td>
+        </ng-container>
 
-            <ng-container matColumnDef="antecedentes">
-                <th mat-header-cell *matHeaderCellDef> antecedentes </th>
-                <td mat-cell *matCellDef="let element"> {{element.antecedentes}} </td>
-            </ng-container>
+        <ng-container matColumnDef="telefonoAcompanante">
+            <th mat-header-cell *matHeaderCellDef> telefono Ac. </th>
+            <td mat-cell *matCellDef="let element"> {{element.telefonoAcompanante}} </td>
+        </ng-container>
 
-            <ng-container matColumnDef="editar">
-                <th mat-header-cell *matHeaderCellDef>Editar</th>
-                <td mat-cell *matCellDef="let paciente">
-                    <a mat-icon-button (click)="editar(paciente)">
-                        <mat-icon class="edit-icon">edit</mat-icon>
-                    </a>
-                </td>
-            </ng-container>
-                    
-            <ng-container matColumnDef="eliminar">
-                <th mat-header-cell *matHeaderCellDef>Eliminar</th>
-                <td mat-cell *matCellDef="let paciente">
-                    <button (click)="eliminarPaciente(paciente)" mat-icon-button>
-                        <mat-icon color="warn">delete</mat-icon>
-                    </button>
-                </td>
+        <ng-container matColumnDef="antecedentes">
+            <th mat-header-cell *matHeaderCellDef> antecedentes </th>
+            <td mat-cell *matCellDef="let element"> {{element.antecedentes}} </td>
+        </ng-container>
 
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-	                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </ng-container>
-                </table>
+        <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef>Editar</th>
+            <td mat-cell *matCellDef="let paciente">
+                <a mat-icon-button (click)="editar(paciente)">
+                    <mat-icon class="edit-icon">edit</mat-icon>
+                </a>
+            </td>
+        </ng-container>
+                
+        <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+            <td mat-cell *matCellDef="let paciente">
+                <button (click)="eliminarPaciente(paciente)" mat-icon-button>
+                    <mat-icon color="warn">delete</mat-icon>
+                </button>
+            </td>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </ng-container>
+    </table>
 <!-- Footer -->
 <footer>
     

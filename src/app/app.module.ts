@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 
 import { AppComponent } from './app.component';
@@ -74,11 +76,11 @@ const rutas: Routes = [
   },
   {
     path: 'triage/editar',
-    component: EditarDoctorComponent
+    component: EditarTriageComponent
   },
   {
     path: 'triage/agregar',
-    component: AgregarDoctorComponent
+    component: AgregarTriageComponent
   },
   {
     path: '',
@@ -129,6 +131,7 @@ const rutas: Routes = [
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
+    MatCheckboxModule,
     
   ],
   providers: [],
