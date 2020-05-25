@@ -1,15 +1,14 @@
-
 <style>
 
 </style>
 <div class="container">
     <mat-toolbar class="toolbar">
-        <a href="paciente">
+        <a href="doctor">
             <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" height="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
             </span>
         </a>
         <span class="fill-remaining-space"></span>
-        <h1 id="title-toolbar">Agregar Paciente</h1>
+        <h1 id="title-toolbar">Agregar Doctor</h1>
         <span class="fill-remaining-space"></span>
         <a>
             <svg id="Logo" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 0 64 64" fill="none">
@@ -27,26 +26,23 @@
     <mat-card class="card-table">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Agregar Paciente</mat-card-title>
-            <mat-card-subtitle>Ingrese todos los campos para agregar un paciente</mat-card-subtitle>
+            <mat-card-title>Doctor</mat-card-title>
+            <mat-card-subtitle>Ingrese todos los campos para agregar un doctor</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
             <div class="form-container">
                 <form [formGroup]="addForm" (ngSubmit)="onSubmit()" method="POST">
 
                     <mat-form-field style="margin: 5px" appearance="fill">
-                        <mat-label>Nombre</mat-label>
-                        <input matInput required name="nombre" formControlName="nombre" class="form-control" id="nombre">
+                        <mat-label>Hospital</mat-label>
+                        <mat-select required name="idHospital" formControlName="idHospital"  class="form-control" id="idHospital">
+                        <mat-option value="1">Umbrella Hospital</mat-option>
+                        </mat-select >
                     </mat-form-field>
 
                     <mat-form-field style="margin: 5px" appearance="fill">
-                        <mat-label>EPS</mat-label>
-                        <mat-select required name="eps" formControlName="eps"  class="form-control" id="eps">
-                        <mat-option value="SURA">SURA</mat-option>
-                        <mat-option value="COOMEVA">COOMEVA</mat-option>
-                        <mat-option value="SUSALUD">SUSALUD</mat-option>
-                        <mat-option value="VIVA1A">VIVA1A</mat-option>
-                        </mat-select >
+                        <mat-label>Nombre</mat-label>
+                        <input matInput required name="nombre" formControlName="nombre" class="form-control" id="nombre">
                     </mat-form-field>
 
                     <br>
@@ -55,24 +51,50 @@
                         <mat-label>Direccion</mat-label>
                         <input matInput required name="direccion" formControlName="direccion" class="form-control" id="direccion">
                     </mat-form-field>
-    
-                    <mat-form-field style="margin: 5px" appearance="fill">
-                        <mat-label>Nombre Acompañante</mat-label>
-                        <input matInput required name="nombreAcompanante" formControlName="nombreAcompanante" class="form-control" id="nombreAcompanante">
-                    </mat-form-field>
 
+                    <mat-form-field style="margin: 5px" appearance="fill">
+                        <mat-label>Telefono</mat-label>
+                        <input matInput required name="telefono" formControlName="telefono" class="form-control" id="telefono">
+                    </mat-form-field>
+                    
                     <br>
 
                     <mat-form-field style="margin: 5px" appearance="fill">
-                        <mat-label>Telefono Acompañante</mat-label>
-                        <input matInput required name="telefonoAcompanante" formControlName="telefonoAcompanante" class="form-control" id="telefonoAcompanante">
-                    </mat-form-field>
-    
-                    <mat-form-field style="margin: 5px" appearance="fill">
-                        <mat-label>Antecedentes</mat-label>
-                        <input matInput required name="antecedentes" formControlName="antecedentes" class="form-control" id="antecedentes">
+                        <mat-label>Tipo Sangre</mat-label>
+                        <mat-select required name="tipoSangre" formControlName="tipoSangre"  class="form-control" id="TipoSangre">
+                        <mat-option value="A+">A+</mat-option>
+                        <mat-option value="B+">B+</mat-option>
+                        <mat-option value="O+">O+</mat-option>
+                        <mat-option value="AB+">AB+</mat-option>
+                        <mat-option value="A-">A-</mat-option>
+                        <mat-option value="B-">B-</mat-option>
+                        <mat-option value="O-">O-</mat-option>
+                        <mat-option value="AB-">AB-</mat-option>
+                        </mat-select >
                     </mat-form-field>
 
+                    <mat-form-field style="margin: 5px" appearance="fill">
+                        <mat-label>Años de experiencia</mat-label>
+                        <mat-select required name="experiencia" formControlName="experiencia"  class="form-control" id="experiencia">
+                        <mat-option value="1">1 Años</mat-option>
+                        <mat-option value="2">2 Años</mat-option>
+                        <mat-option value="3">3 Años</mat-option>
+                        <mat-option value="4">4 Años</mat-option>
+                        <mat-option value="5">5 Años</mat-option>
+                        <mat-option value="6">6 Años</mat-option>
+                        <mat-option value="7">7 Años</mat-option>
+                        <mat-option value="8">8 Años</mat-option>
+                        </mat-select >
+                    </mat-form-field>
+                    
+                    <br>
+
+                    <mat-form-field style="margin: 5px " color="accent">
+                        <mat-label>fecha de Nacimiento</mat-label>
+                        <input matInput required [matDatepicker]="picker1" name="fechaNacimiento" formControlName="fechaNacimiento"  class="form-control" id="fechaNacimiento">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
                     <br>
 
                     <button  class="btn-agregar" type="submit" mat-raised-button>Guardar</button>

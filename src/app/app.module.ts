@@ -24,11 +24,16 @@ import { TriageComponent } from './components/triage/triage.component';
 import { PacienteComponent } from './components/paciente/paciente.component';
 import { HomeComponent } from './components/home/home.component';
 import { MaterialModule } from './material/material.module'
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { DialogoConfirmacionComponent } from './components/dialogo-confirmacion/dialogo-confirmacion.component';
 import { DialogoAgregarPacienteComponent } from './components/dialogo-agregar-paciente/dialogo-agregar-paciente.component';
 import { AgregarPacienteComponent } from './components/paciente/agregar-paciente/agregar-paciente.component';
 import { EditarPacienteComponent } from './components/paciente/editar-paciente/editar-paciente.component';
+import { AgregarDoctorComponent } from './components/doctor/agregar-doctor/agregar-doctor.component';
+import { EditarDoctorComponent } from './components/doctor/editar-doctor/editar-doctor.component';
+import { EditarTriageComponent } from './components/triage/editar-triage/editar-triage.component';
+import { AgregarTriageComponent } from './components/triage/agregar-triage/agregar-triage.component';
 
 const rutas: Routes = [
   {
@@ -60,6 +65,22 @@ const rutas: Routes = [
     component: EditarPacienteComponent
   },
   {
+    path: 'doctor/editar',
+    component: EditarDoctorComponent
+  },
+  {
+    path: 'doctor/agregar',
+    component: AgregarDoctorComponent
+  },
+  {
+    path: 'triage/editar',
+    component: EditarDoctorComponent
+  },
+  {
+    path: 'triage/agregar',
+    component: AgregarDoctorComponent
+  },
+  {
     path: '',
     component: HomeComponent,
   },
@@ -77,6 +98,10 @@ const rutas: Routes = [
     DialogoAgregarPacienteComponent,
     AgregarPacienteComponent,
     EditarPacienteComponent,
+    AgregarDoctorComponent,
+    EditarDoctorComponent,
+    EditarTriageComponent,
+    AgregarTriageComponent,
     
     
   ],
@@ -103,6 +128,7 @@ const rutas: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatDatepickerModule,
     
   ],
   providers: [],

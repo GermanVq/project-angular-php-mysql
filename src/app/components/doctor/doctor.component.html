@@ -28,7 +28,9 @@
             <mat-card-title>Tabla de Doctores</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                
+            <div class="btn-agregar">
+                <button [routerLink]="['/doctor/agregar']" class="btn-agg" mat-raised-button>Apregar Paciente</button>
+            </div>
             </mat-card-content>
         </mat-card>
 
@@ -78,7 +80,7 @@
             <ng-container matColumnDef="editar">
                 <th mat-header-cell *matHeaderCellDef>Editar</th>
                 <td mat-cell *matCellDef="let doctor">
-                    <a mat-icon-button>
+                    <a mat-icon-button (click)="editar(doctor)">
                         <mat-icon class="edit-icon">edit</mat-icon>
                     </a>
                 </td>

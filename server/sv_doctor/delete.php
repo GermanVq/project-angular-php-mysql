@@ -8,8 +8,8 @@ if (empty($_GET["id"])) {
     exit("No hay id de paciente para eliminar");
 }
 
-$id_paciente = $_GET["id"];
+$id_doctor = $_GET["id"];
 $db = include_once "../connectdb.php";
-$sentencia = $db->prepare("DELETE FROM paciente WHERE id = ?");
-$resultado = $sentencia->execute([$id_paciente]);
+$sentencia = $db->prepare("DELETE FROM doctor WHERE id = ?");
+$resultado = $sentencia->execute([$id_doctor]);
 echo json_encode($resultado);
