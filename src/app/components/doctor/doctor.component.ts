@@ -59,7 +59,7 @@ export class DoctorComponent implements OnInit {
   }
 
   editar(doctor:Doctor) {
-    window.localStorage.setItem("editardoctor", doctor.id.toString());
+    window.localStorage.setItem("editardoctor", doctor.id);
     this.router.navigate(['doctor/editar']);
   }
 

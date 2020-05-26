@@ -13,7 +13,7 @@ if (empty($_GET["id"])) {
 
 $id_paciente = $_GET["id"];
 $bd = include_once "../connectdb.php";
-$sentencia = $bd->prepare("UPDATE paciente SET nombre = ?, eps = ? , direccion = ?,nombreAcompanante = ?, telefonoAcompanante = ?, antecedentes = ? where id = ?");
+$sentencia = $bd->prepare("UPDATE paciente SET nombre = '', eps = '' , direccion = '',nombreAcompanante ='', telefonoAcompanante ='', antecedentes = '' where id = $id_paciente");
 $resultado = $sentencia->execute([$jsonPaciente->nombre,
                                     $jsonPaciente->eps, 
                                     $jsonPaciente->direccion, 

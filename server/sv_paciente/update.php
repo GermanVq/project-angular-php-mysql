@@ -11,9 +11,9 @@ if (empty($_GET["id"])) {
     exit("No hay id de paciente para eliminar");
 }
 
-$id_paciente = $_GET["id"];
+$id = $_GET["id"];
 $bd = include_once "../connectdb.php";
-$sentencia = $bd->prepare("UPDATE paciente SET nombre = ?, eps = ? , direccion = ?,nombreAcompanante = ?, telefonoAcompanante = ?, antecedentes = ? where id = ?");
+$sentencia = $bd->prepare("UPDATE paciente SET nombre = ?, eps = ? , direccion = ?,nombreAcompanante = ?, telefonoAcompanante = ?, antecedentes = ? where id = $id");
 $resultado = $sentencia->execute([$jsonPaciente->nombre,
                                     $jsonPaciente->eps, 
                                     $jsonPaciente->direccion, 

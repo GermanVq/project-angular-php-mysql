@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2020 a las 20:48:16
+-- Tiempo de generación: 26-05-2020 a las 06:15:38
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -44,7 +44,11 @@ CREATE TABLE `doctor` (
 --
 
 INSERT INTO `doctor` (`id`, `idHospital`, `nombre`, `direccion`, `telefono`, `tipoSangre`, `experiencia`, `fechaNacimiento`) VALUES
-(28, 1, 'Howard lovecraft', 'cll 7X #13 106', '3666443203', 'O-', 5, '2020-05-22');
+(28, 1, 'Howard lovecraft', 'cll 7X #13 106', '3666443203', 'O-', 5, '2020-05-22'),
+(31, 1, 'Anne Hathaway', 'cll 7D #13 107', '3624403', 'A-', 10, '1990-05-22'),
+(33, 1, 'wfewfew', 'cr56 #17 21', '3222222', 'A-', 6, '1998-07-23'),
+(34, 1, 'wfewfew', 'cr56 #17 21', '3222222', 'A-', 6, '1998-07-23'),
+(36, 1, 'gewrw', 'cr34', '2332222', 'AB+', 5, '2020-05-20');
 
 -- --------------------------------------------------------
 
@@ -89,23 +93,11 @@ CREATE TABLE `paciente` (
 --
 
 INSERT INTO `paciente` (`id`, `nombre`, `eps`, `direccion`, `nombreAcompanante`, `telefonoAcompanante`, `antecedentes`) VALUES
-(1, 'German', 'Sura', 'Cr 24Z #193 26', 'Anne hathaway', '32222222', 'ninguno'),
-(3, 'gewrw', 'option', '321', 'tod', '32223234', 'Ninguno '),
-(4, 'jod', 'option', 'cr74', 'gdgasd', '3623626', 'Ninguno '),
-(6, 'Massi', 'option', 'cr26 #17 21', 'gdgasd', '32223234', 'Si'),
 (7, 'German Vega', 'option', 'cr4 #42 76', 'anne hathaway', '312578769', 'Ninguno '),
-(10, 'jesus', 'option', 'cr1#11 1', '', '311111111', 'Si'),
-(11, 'dsad', 'option', '32134575', 'eddy', '32223234', 'Ninguno '),
-(12, 'wfewfew', 'option', 'cr74', 'ted', '32223234', 'Ninguno '),
-(14, 'messi', 'option', 'Cll 7', 'tod', '3222222', 'Ninguno '),
 (15, 'maradona', 'option', 'cr 72 # 24 15', 'messi', '315440003', 'Ninguno '),
 (17, 'thor', 'VIVA1A', 'Cll 127 Olimpo', 'loki', '31212121', 'Ninguno '),
 (65, 'mario', 'COOMEVA', 'cr74', 'ted', '32223234', 'Ninguno '),
-(66, 'mario2', 'COOMEVA', 'cr74', 'gdgasd', '3222222', 'Si'),
-(67, 'wafer', 'COOMEVA', 'cr34', 'oreo', '32223234', 'Si'),
-(69, 'gewrw', 'SUSALUD', 'cr56 #17 21', 'Ramona', '32223234', 'carcel'),
-(71, 'cano', 'VIVA1A', 'cr56 #17 21', 'messi', '3623626', 'Ninguno '),
-(72, 'Junior', 'SURA', 'Cr 24Z #193 26', 'Anne', '32222222', 'Si');
+(67, 'wafer', 'COOMEVA', 'cr34', 'oreo', '32223234', 'Si');
 
 -- --------------------------------------------------------
 
@@ -114,14 +106,28 @@ INSERT INTO `paciente` (`id`, `nombre`, `eps`, `direccion`, `nombreAcompanante`,
 --
 
 CREATE TABLE `triage` (
-  `idT` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `idDoctor` int(11) NOT NULL,
   `idPaciente` int(11) NOT NULL,
   `motivo` text NOT NULL,
   `diagnostico` text NOT NULL,
   `requiereMedicina` varchar(50) NOT NULL,
-  `covid` varchar(50) NOT NULL
+  `covid` varchar(50) NOT NULL,
+  `tos` tinyint(1) NOT NULL,
+  `dificultadRespirar` tinyint(1) NOT NULL,
+  `fiebre` tinyint(1) NOT NULL,
+  `escalofrio` tinyint(1) NOT NULL,
+  `temblorEscalofrio` tinyint(1) NOT NULL,
+  `dolorMuscular` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `triage`
+--
+
+INSERT INTO `triage` (`id`, `idDoctor`, `idPaciente`, `motivo`, `diagnostico`, `requiereMedicina`, `covid`, `tos`, `dificultadRespirar`, `fiebre`, `escalofrio`, `temblorEscalofrio`, `dolorMuscular`) VALUES
+(1, 28, 15, 'fiebre', 'presenta covid-19', 'No requiere ', 'Si', 1, 1, 1, 0, 0, 1),
+(8, 28, 15, 'NaA', 'NaN', 'NaN', 'NaN', 1, 0, 1, 0, 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -150,7 +156,7 @@ ALTER TABLE `paciente`
 -- Indices de la tabla `triage`
 --
 ALTER TABLE `triage`
-  ADD PRIMARY KEY (`idT`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `idDoctor` (`idDoctor`) USING BTREE,
   ADD KEY `idPaciente` (`idPaciente`) USING BTREE;
 
@@ -162,7 +168,7 @@ ALTER TABLE `triage`
 -- AUTO_INCREMENT de la tabla `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `hospital`
@@ -174,13 +180,13 @@ ALTER TABLE `hospital`
 -- AUTO_INCREMENT de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT de la tabla `triage`
 --
 ALTER TABLE `triage`
-  MODIFY `idT` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
