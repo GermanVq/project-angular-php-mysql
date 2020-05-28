@@ -37,6 +37,7 @@ import { EditarDoctorComponent } from './components/doctor/editar-doctor/editar-
 import { EditarTriageComponent } from './components/triage/editar-triage/editar-triage.component';
 import { AgregarTriageComponent } from './components/triage/agregar-triage/agregar-triage.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { EditarHospitalComponent } from './components/hospital/editar-hospital/editar-hospital.component';
 
 const rutas: Routes = [
   {
@@ -110,6 +111,7 @@ const rutas: Routes = [
     EditarTriageComponent,
     AgregarTriageComponent,
     MenuComponent,
+    EditarHospitalComponent,
     
     
   ],

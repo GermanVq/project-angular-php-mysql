@@ -110,7 +110,7 @@
             <ng-container matColumnDef="editar">
                 <th mat-header-cell *matHeaderCellDef>Editar</th>
                 <td mat-cell *matCellDef="let triage">
-                    <a mat-icon-button (click)="editar(triage)">
+                    <a mat-icon-button (click)="editar(triage.id)">
                         <mat-icon class="edit-icon">edit</mat-icon>
                     </a>
                 </td>

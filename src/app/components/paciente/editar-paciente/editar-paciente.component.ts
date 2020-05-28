@@ -47,7 +47,7 @@ export class EditarPacienteComponent implements OnInit {
     this.pacienteService.getPaciente(id)
     .subscribe( data => {
       
-      this.editForm.setValue(data);
+      this.editForm.patchValue(data);
     });
   }
 

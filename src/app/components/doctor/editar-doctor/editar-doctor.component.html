@@ -41,19 +41,19 @@
 
                     <mat-form-field style="margin: 5px" appearance="fill">
                         <mat-label>Nombre</mat-label>
-                        <input matInput required name="nombre" formControlName="nombre" class="form-control" id="nombre">
+                        <input matInput maxlength="50" required name="nombre" formControlName="nombre" class="form-control" id="nombre">
                     </mat-form-field>
 
                     <br>
 
                     <mat-form-field style="margin: 5px" appearance="fill">
                         <mat-label>Direccion</mat-label>
-                        <input matInput required name="direccion" formControlName="direccion" class="form-control" id="direccion">
+                        <input matInput maxlength="50" required name="direccion" formControlName="direccion" class="form-control" id="direccion">
                     </mat-form-field>
 
                     <mat-form-field style="margin: 5px" appearance="fill">
                         <mat-label>Telefono</mat-label>
-                        <input matInput required name="telefono" formControlName="telefono" class="form-control" id="telefono">
+                        <input matInput maxlength="20" required name="telefono" formControlName="telefono" class="form-control" id="telefono">
                     </mat-form-field>
                     
                     <br>
@@ -83,6 +83,8 @@
                         <mat-option value="6">6 Años</mat-option>
                         <mat-option value="7">7 Años</mat-option>
                         <mat-option value="8">8 Años</mat-option>
+                        <mat-option value="9">9 Años</mat-option>
+                        <mat-option value="10">10 Años</mat-option>
                         </mat-select >
                     </mat-form-field>
                     
@@ -96,7 +98,7 @@
                     </mat-form-field>
                     <br>
 
-                    <button  class="btn-agregar" type="submit" mat-raised-button>Guardar</button>
+                    <button  class="btn-update" type="submit" mat-raised-button>Guardar</button>
 
                 </form>
             </div>      

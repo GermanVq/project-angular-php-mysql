@@ -10,7 +10,10 @@ import {FormBuilder, Validators, FormGroup} from "@angular/forms";
   templateUrl: './editar-doctor.component.html',
   styleUrls: ['./editar-doctor.component.css']
 })
+
+
 export class EditarDoctorComponent implements OnInit {
+  
 
   editForm : FormGroup;
 
@@ -19,7 +22,7 @@ export class EditarDoctorComponent implements OnInit {
     private snackBar: MatSnackBar, private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
-    let id = window.localStorage.getItem("editardoctor");
+    let idDoc = window.localStorage.getItem("editardoctor");
     this.editForm = this.formBuilder.group({
       id: [],
       idHospital: ['', Validators.required],
@@ -31,32 +34,29 @@ export class EditarDoctorComponent implements OnInit {
       fechaNacimiento: ['', Validators.required],
     });
 
-    if(!id) {
+    if(!idDoc) {
       alert("Ocurrio un error.")
       this.router.navigate(['']);
       return;
     }else{
-      this.cargarDetalleDoctor(id)
+      this.cargarDetalleDoctor(idDoc)
     }
   }
 
   cargarDetalleDoctor(id:string){
     this.doctorService.getdoctor(id)
     .subscribe( data => {
-      
-      this.editForm.setValue(data);
+      this.editForm.patchValue(data);
     });
   }
   onSubmit(){
-    this.doctorService.editardoctor(this.editForm.value)   
-    .subscribe(
-      data => {
+    this.doctorService.updatedoctor(this.editForm.value).subscribe(
+      data => { 
         if(data["resultado"] == "OK"){
-        
-          this.router.navigate(['/paciente']);
-        }
-        
+          this.router.navigate(['/doctor']);
+        } 
       })
-  }
+    }
+  
 
 }

@@ -34,7 +34,7 @@ export class PacienteService {
     {responseType: 'text' as 'json' });
   }
   editarPaciente(paciente:Paciente):Observable<PacienteService>{
-    return this.http.put<PacienteService>(`${this.Url}/sv_paciente/post.php`,JSON.stringify(paciente));
+    return this.http.put<PacienteService>(`${this.Url}/sv_paciente/update.php`,JSON.stringify(paciente));
   }
   
 }

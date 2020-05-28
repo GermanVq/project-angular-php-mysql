@@ -17,7 +17,11 @@ export class DoctorComponent implements OnInit {
 
   constructor(private doctorService: DoctorService, private dialogo: MatDialog, private snackBar: MatSnackBar, private router: Router) { }
 
-
+editar(doctor) {
+    window.localStorage.setItem("editardoctor", doctor);
+    console.log(doctor)
+    this.router.navigate(['doctor/editar']);
+  }
   eliminarDoctor(doctor:Doctor) {
     this.dialogo
       .open(DialogoConfirmacionComponent, {
@@ -58,9 +62,6 @@ export class DoctorComponent implements OnInit {
     this.router.navigate(['/doctor/agregar']);;
   }
 
-  editar(doctor:Doctor) {
-    window.localStorage.setItem("editardoctor", doctor.id);
-    this.router.navigate(['doctor/editar']);
-  }
+  
 
 }

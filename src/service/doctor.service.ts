@@ -24,14 +24,15 @@ export class DoctorService {
     return this.http.delete(`${this.Url}/sv_doctor/delete.php?id=${doctor.id}`,{headers, responseType: 'text' as 'json' });
   }
   updatedoctor(doctor: Doctor){
-    return this.http.put(`${this.Url}/sv_doctor/update.php`, doctor);
+    return this.http.put(`${this.Url}/sv_doctor/update.php`, doctor,{headers, responseType: 'text' as 'json' });
   }
   adddoctor(doctor: Doctor): Observable<DoctorService> {
     return this.http.post<DoctorService>(`${this.Url}/sv_doctor/post.php`, JSON.stringify(doctor),
     {responseType: 'text' as 'json' });
   }
   editardoctor(doctor:Doctor):Observable<DoctorService>{
-    return this.http.put<DoctorService>(`${this.Url}/sv_doctor/post.php`,JSON.stringify(doctor));
+    return this.http.put<DoctorService>(`${this.Url}/sv_doctor/update.php`,JSON.stringify(doctor),{headers, responseType: 'text' as 'json' });
   }
+  
   
 }

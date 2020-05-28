@@ -26,12 +26,13 @@ export class TriageService {
   updatetriage(triage: Triage){
     return this.http.put(`${this.Url}/sv_triage/update.php`, triage);
   }
+
   addtriage(triage: Triage): Observable<TriageService> {
     return this.http.post<TriageService>(`${this.Url}/sv_triage/post.php`, JSON.stringify(triage),
     {responseType: 'text' as 'json' });
   }
   editartriage(triage:Triage):Observable<TriageService>{
-    return this.http.put<TriageService>(`${this.Url}/sv_triage/post.php`,JSON.stringify(triage));
+    return this.http.put<TriageService>(`${this.Url}/sv_triage/update.php`,JSON.stringify(triage));
   }
 
 }

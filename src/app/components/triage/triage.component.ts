@@ -52,8 +52,8 @@ export class TriageComponent implements OnInit {
     });
   }
 
-  editar(triage:Triage) {
-    window.localStorage.setItem("editarTriage", triage.id);
+  editar(triage) {
+    window.localStorage.setItem("editarTriage", triage);
     this.router.navigate(['triage/editar']);
   }
 
